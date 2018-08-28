@@ -12,14 +12,19 @@ namespace Hand_Coding_Tutorial
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [CodedUITest]
-    class CalciFun
+    public class CalciFun
     {
         static UITestControl control = Launch.Control();
 
         [TestMethod]
         public void CallFun()
         {
-
+            ApplicationUnderTest app = ApplicationUnderTest.Launch("C:\\Windows\\System32\\calc.exe");
+            Mouse.Click(btnmethod8());
+            Mouse.Click(btnmethodAdd());
+            Mouse.Click(btnmethod7());
+            Mouse.Click(btnmethodEqual());
+            Assert.AreEqual("10", txtmethodResult().GetProperty(WinText.PropertyNames.DisplayText));
         }
 
         #region Buttons
